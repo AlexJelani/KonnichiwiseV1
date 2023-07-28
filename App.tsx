@@ -3,7 +3,7 @@ import { NativeBaseProvider } from "native-base";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "react-native-screens/native-stack";
 import Home from "./src/screens/Home";
-import Details2 from "./src/screens/Details2";
+import Details from "./src/screens/Details";
 
 const Stack = createNativeStackNavigator();
 
@@ -18,8 +18,8 @@ const App = () => {
             options={{ headerShown: false }}
           />
           <Stack.Screen
-            name="Details2"
-            component={Details2}
+            name="Details"
+            component={Details}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>
