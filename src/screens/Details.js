@@ -1,6 +1,6 @@
 import React from "react";
-import { View, ImageBackground, TouchableWithoutFeedback, StyleSheet, Text } from "react-native";
-// import { Icon } from 'native-base';
+import { View, ImageBackground, TouchableWithoutFeedback, StyleSheet, Text, ScrollView } from "react-native";
+import { FlatList } from "react-native"; // Import FlatList
 import Icon from "react-native-vector-icons/Ionicons";
 
 
@@ -9,6 +9,15 @@ const Details = ({ route, navigation }) => {
   const { category } = route.params;
   console.log(category.title); // Log the category title to the console
 
+
+  const renderItem = ({ item }) => {
+    return (
+      <View style={styles.phraseContainer}>
+        <Text style={styles.phraseText}>{item.english}</Text>
+        <Text style={styles.phraseText}>{item.japanese}</Text>
+      </View>
+    );
+  };
 
   return (
     <View style={styles.container}>
@@ -28,9 +37,20 @@ const Details = ({ route, navigation }) => {
           <Text style={styles.categoryNameText}>{category.title}</Text>
         </View>
       </ImageBackground>
+      <ScrollView nestedScrollEnabled={true}>
       <View style={styles.bodyText}>
-        <Text style={styles.description}>Description</Text>
+        <Text style={styles.descriptionName}>Overview</Text>
+        <Text style={styles.description}>{category.description}</Text>
+        <Text style={styles.descriptionName}>Phrases</Text>
+        <FlatList
+          data={category.list}
+          renderItem={renderItem}
+          keyExtractor={(item, index) => index.toString()}
+          ItemSeparatorComponent={() => <View style={styles.separator} />}
+        />
       </View>
+      </ScrollView>
+
     </View>
   );
 };
@@ -67,7 +87,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     textAlign: "center",
-    color: "#f8f5f5",
+    color: "#f8f5f5"
   },
   bodyText: {
     width: "100%",
@@ -75,11 +95,31 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     marginBottom: 100
   },
+  descriptionName: {
+    fontSize: 27,
+    fontWeight: "bold",
+    color: "#000000"
+  },
   description: {
     fontSize: 25,
     fontWeight: "bold",
     color: "#000000"
+  },
+  phraseContainer: {
+    marginVertical: 10,
+    //padding: 10,
+    //borderRadius: 8,
+    backgroundColor: "#f2f2f2"
+  },
+  phraseText: {
+    fontSize: 18,
+    color: "#333"
+  },
+  separator: {
+    height: 1,
+    backgroundColor: "#000000"
   }
+
 
 });
 

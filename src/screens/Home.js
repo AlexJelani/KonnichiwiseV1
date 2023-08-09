@@ -5,7 +5,7 @@ import {
   Text,
   FlatList,
   ImageBackground,
-  TouchableOpacity,
+  TouchableOpacity
 } from "react-native";
 
 const categoriesData = [
@@ -17,9 +17,12 @@ const categoriesData = [
     list: [
       { english: "Excuse me / I'm sorry", japanese: "すみません (Sumimasen)" },
       { english: "Please", japanese: "お願いします (Onegaishimasu)" },
-      { english: "Please refrain from using mobile phones during the ride", japanese: "乗車中の携帯電話の使用はお控えください (Joushachuu no keitai denwa no shiyou wa okuranaikudasai)" },
-      { english: "Could you please give me your seat?", japanese: "席を譲っていただけませんか (Seki o yuzutte itadakemasen ka)" },
-    ],
+      {
+        english: "Please refrain from using mobile phones during the ride",
+        japanese: "乗車中の携帯電話の使用はお控えください (Joushachuu no keitai denwa no shiyou wa okuranaikudasai)"
+      },
+      { english: "Could you please give me your seat?", japanese: "席を譲っていただけませんか (Seki o yuzutte itadakemasen ka)" }
+    ]
   },
   {
     id: "2",
@@ -31,7 +34,8 @@ const categoriesData = [
       { english: "Thank you for the meal (after eating)", japanese: "ごちそうさまでした (Gochisousama deshita)" },
       { english: "Excuse me, water please", japanese: "すみません、お水をお願いします (Sumimasen, omizu o onegaishimasu)" },
       { english: "Check, please", japanese: "お勘定お願いします (Okanjou onegaishimasu)" },
-    ],
+      { english: "Check, please", japanese: "お勘定お願いします (Okanjou onegaishimasu)" }
+    ]
   },
   {
     id: "3",
@@ -42,8 +46,8 @@ const categoriesData = [
       { english: "I'm going to pray / visit", japanese: "お参りします (O-mairi shimasu)" },
       { english: "I have a favor to ask", japanese: "お願いがあります (Onegai ga arimasu)" },
       { english: "Could I receive a temple/shrine stamp?", japanese: "御朱印をいただけますか (Goshuin o itadakemasu ka)" },
-      { english: "Please take off your shoes", japanese: "靴を脱いでください (Kutsu o nuide kudasai)" },
-    ],
+      { english: "Please take off your shoes", japanese: "靴を脱いでください (Kutsu o nuide kudasai)" }
+    ]
   },
   {
     id: "4",
@@ -54,9 +58,9 @@ const categoriesData = [
       { english: "Please call an ambulance", japanese: "救急車を呼んでください (Kyuukyuusha o yonde kudasai)" },
       { english: "Please call a doctor", japanese: "医者を呼んでください (Isha o yonde kudasai)" },
       { english: "I brought my health insurance card", japanese: "保険証を持ってきました (Hokenshou o motte kimashita)" },
-      { english: "Where is the pharmacy?", japanese: "薬局はどこですか (Yakkyoku wa doko desu ka)" },
-    ],
-  },
+      { english: "Where is the pharmacy?", japanese: "薬局はどこですか (Yakkyoku wa doko desu ka)" }
+    ]
+  }
 ];
 
 
@@ -65,7 +69,7 @@ const Home = ({ navigation }) => {
   const renderItem = ({ item }) => {
     return (
       <TouchableOpacity
-        onPress={() => navigation.navigate("Details",  {
+        onPress={() => navigation.navigate("Details", {
           category: item
         })}
       >
@@ -74,6 +78,7 @@ const Home = ({ navigation }) => {
           style={styles.categoryBackground}
           imageStyle={{ borderRadius: 20 }}
         >
+          <View style={styles.darkness} />
           <Text style={styles.categoryText}>{item.title}</Text>
         </ImageBackground>
       </TouchableOpacity>
@@ -104,7 +109,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     backgroundColor: "#f6f7fc",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   categories: {
     fontSize: 22,
@@ -112,7 +117,7 @@ const styles = StyleSheet.create({
     color: "#000000",
     paddingHorizontal: 20,
     marginBottom: 20,
-    alignSelf: "flex-start",
+    alignSelf: "flex-start"
   },
   categoryBackground: {
     height: 180,
@@ -121,13 +126,20 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginVertical: 15,
-    left: 20,
+    left: 20
   },
   categoryText: {
     textAlign: "center",
     fontSize: 25,
     color: "#f8f5f5",
     fontWeight: "bold",
-    bottom: 10,
+    bottom: 10
+  },
+  darkness: {
+    position: 'absolute',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    width: 150,
+    height: 180,
+    borderRadius: 20,
   },
 });
