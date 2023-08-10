@@ -103,13 +103,10 @@ export default Home;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: "100%",
-    paddingVertical: 20,
-    paddingHorizontal: 20,
+    width: '100%',
+    paddingVertical: 50,
     marginBottom: 20,
-    backgroundColor: "#f6f7fc",
-    justifyContent: "center",
-    alignItems: "center"
+    backgroundColor: '#f6f7fc',
   },
   categories: {
     fontSize: 22,
