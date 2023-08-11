@@ -5,7 +5,7 @@ import {
   Text,
   FlatList,
   ImageBackground,
-  TouchableOpacity
+  TouchableOpacity, Dimensions
 } from "react-native";
 
 const categoriesData = [
@@ -66,6 +66,9 @@ const categoriesData = [
 
 const Home = ({ navigation }) => {
   const numColumns = 2;
+  const windowWidth = Dimensions.get('window').width;
+  const horizontalPadding = 20;
+  const cardWidth = (windowWidth - horizontalPadding * 3) / 2; // Two cards with 20 padding between them
   const renderItem = ({ item }) => {
     return (
       <TouchableOpacity
@@ -75,7 +78,7 @@ const Home = ({ navigation }) => {
       >
         <ImageBackground
           source={item.image}
-          style={styles.categoryBackground}
+          style={[styles.categoryBackground, { width: cardWidth }]}
           imageStyle={{ borderRadius: 20 }}
         >
           <View style={styles.darkness} />
@@ -107,13 +110,14 @@ const styles = StyleSheet.create({
     paddingVertical: 50,
     marginBottom: 20,
     backgroundColor: '#f6f7fc',
+    justifyContent: "flex-end"
   },
   categories: {
     fontSize: 22,
     fontWeight: "bold",
     color: "#000000",
     paddingHorizontal: 20,
-    marginBottom: 20,
+    marginBottom: 10,
     alignSelf: "flex-start"
   },
   categoryBackground: {
@@ -135,8 +139,8 @@ const styles = StyleSheet.create({
   darkness: {
     position: 'absolute',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    width: 150,
-    height: 180,
+    width: '100%', // Set to cover the entire width of the card
+    height: '100%', // Set to cover the entire height of the card
     borderRadius: 20,
   },
 });
