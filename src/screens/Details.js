@@ -1,7 +1,9 @@
 import React from "react";
-import { View, ImageBackground, TouchableWithoutFeedback, StyleSheet, Text, ScrollView } from "react-native";
+import { View, ImageBackground, TouchableWithoutFeedback, StyleSheet, Text} from "react-native";
 import { FlatList } from "react-native"; // Import FlatList
 import Icon from "react-native-vector-icons/Ionicons";
+import { ScrollView } from 'react-native-virtualized-view';
+
 
 
 const Details = ({ route, navigation }) => {
@@ -14,6 +16,7 @@ const Details = ({ route, navigation }) => {
     return (
       <View style={styles.phraseContainer}>
         <Text style={styles.phraseText}>{item.english}</Text>
+        <Text style={styles.phraseText}>{item.furigana}</Text>
         <Text style={styles.phraseText}>{item.japanese}</Text>
       </View>
     );
