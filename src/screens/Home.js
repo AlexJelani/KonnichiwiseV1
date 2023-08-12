@@ -1,6 +1,7 @@
 import React from "react";
 import MainHeader from "../components/MainHeader"
 
+
 import {
   View,
   StyleSheet,
@@ -71,6 +72,7 @@ const Home = ({ navigation }) => {
   const windowWidth = Dimensions.get('window').width;
   const horizontalPadding = 20;
   const cardWidth = (windowWidth - horizontalPadding * 3) / 2; // Two cards with 20 padding between them
+
   const renderItem = ({ item }) => {
     return (
       <TouchableOpacity
@@ -93,6 +95,7 @@ const Home = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <MainHeader title="KonnichiWise"/>
+      {/*<SwipeableImageSlider categoryImages={selectedImages}  />*/}
       <Text style={styles.categories}>Categories</Text>
       <FlatList
         numColumns={numColumns} // Set the number of columns to 2
