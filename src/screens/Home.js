@@ -1,4 +1,6 @@
 import React from "react";
+import MainHeader from "../components/MainHeader"
+
 import {
   View,
   StyleSheet,
@@ -90,6 +92,7 @@ const Home = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      <MainHeader title="KonnichiWise"/>
       <Text style={styles.categories}>Categories</Text>
       <FlatList
         numColumns={numColumns} // Set the number of columns to 2
@@ -107,7 +110,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
-    paddingVertical: 50,
+    //paddingVertical: 50,
     marginBottom: 20,
     backgroundColor: '#f6f7fc',
     justifyContent: "flex-end"
