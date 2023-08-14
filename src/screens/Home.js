@@ -41,8 +41,7 @@ const Home = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <MainHeader title="KonnichiWise"/>
-      {/*<SwipeableImageSlider categoryImages={selectedImages}  />*/}
+      <MainHeader />
       <Text style={styles.categories}>Categories</Text>
       <FlatList
         numColumns={numColumns} // Set the number of columns to 2

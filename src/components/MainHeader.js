@@ -2,10 +2,10 @@ import {View, StyleSheet, } from "react-native"
 import { Text } from "native-base";
 
 
-const MainHeader = ({title}) => {
+const MainHeader = () => {
   return (
     <View style={styles.container}>
-      <Text fontSize="3xl" bold>{title}</Text>
+      <Text fontSize="3xl" bold>KonnichiWise</Text>
     </View>
   );
 };
