@@ -27,14 +27,16 @@ const Home = ({ navigation }) => {
           category: item
         })}
       >
-        <ImageBackground
-          source={item.image}
-          style={[styles.categoryBackground, { width: cardWidth }]}
-          imageStyle={{ borderRadius: 20 }}
-        >
-          <View style={styles.darkness} />
-          <Text style={styles.categoryText}>{item.title}</Text>
-        </ImageBackground>
+        <View style={styles.cardContainer}>
+          <ImageBackground
+            source={item.image}
+            style={[styles.categoryBackground, { width: cardWidth }]}
+            imageStyle={{ borderRadius: 20 }}
+          >
+            <View style={styles.darkness} />
+            <Text style={styles.categoryText}>{item.title}</Text>
+          </ImageBackground>
+        </View>
       </TouchableOpacity>
     );
   };
@@ -42,13 +44,15 @@ const Home = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <MainHeader />
-      <Text style={styles.categories}>Categories</Text>
+      <View style={styles.whiteSection}>
       <FlatList
         numColumns={numColumns} // Set the number of columns to 2
         data={categoriesData}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
+        contentContainerStyle={styles.flatListContent} // Added contentContainerStyle
       />
+      </View>
     </View>
   );
 };
@@ -58,11 +62,23 @@ export default Home;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: '100%',
-    //paddingVertical: 50,
-    marginBottom: 20,
-    backgroundColor: '#f6f7fc',
+    backgroundColor: "red",
     justifyContent: "flex-end"
+  },
+  whiteSection:{
+    backgroundColor:"#fff",
+    flex:1,
+    marginTop: 240,
+    borderTopLeftRadius:56,
+    borderTopRightRadius:56,
+    alignItems:"center"
+  },
+  flatListContent: {
+    alignItems: "center", // Center the FlatList's content
+    paddingTop: 20, // Add padding at the top for spacing
+    paddingLeft: 20, // Add left padding
+    paddingRight:20
+
   },
   categories: {
     fontSize: 22,
@@ -72,14 +88,21 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     alignSelf: "flex-start"
   },
+  cardContainer: {
+    flex: 1,
+    alignItems: "center",
+    //paddingHorizontal: 5, // Add some horizontal padding for spacing
+
+  },
   categoryBackground: {
+    flex:1,
     height: 180,
     width: 150,
     marginRight: 15,
     justifyContent: "center",
     alignItems: "center",
     marginVertical: 15,
-    left: 20
+    //left: 20
   },
   categoryText: {
     textAlign: "center",
