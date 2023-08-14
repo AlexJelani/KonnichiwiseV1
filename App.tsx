@@ -1,31 +1,18 @@
-import React from "react";
-import { NativeBaseProvider } from "native-base";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Home from "./src/screens/Home";
-import Details from "./src/screens/Details";
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ * @flow strict-local
+ */
 
-const Stack = createNativeStackNavigator();
-
+import React from 'react';
+import StackNavigation from './src/navigation/StackNavigation';
+import { LogBox } from 'react-native';
+LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+LogBox.ignoreAllLogs();//Ignore all log notifications
 const App = () => {
-  return (
-    <NativeBaseProvider>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen
-            name="Home"
-            component={Home}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Details"
-            component={Details}
-            options={{ headerShown: false }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </NativeBaseProvider>
-  );
+  return <StackNavigation />;
 };
 
 export default App;
