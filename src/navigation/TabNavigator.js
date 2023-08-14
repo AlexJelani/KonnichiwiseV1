@@ -28,7 +28,7 @@ const TabNavigator = () => {
         tabBarShowLabel: false,
         headerShown: false,
         tabBarActiveTintColor: "tomato",
-        tabBarInactiveTintColor: "grey"
+        tabBarInactiveTintColor: "black"
       }}
     >
       <Tab.Screen
@@ -41,7 +41,7 @@ const TabNavigator = () => {
               <Image
                 source={icons.Home}
                 style={{
-                  tintColor: focused ? "tomato" : "grey",
+                  tintColor: focused ? "tomato" : "black",
                 }}
               />
             </Animated.View>
@@ -59,7 +59,7 @@ const TabNavigator = () => {
                 style={{
                   width: 40,
                   height: 40,
-                  tintColor: focused ? "tomato" : "grey",
+                  tintColor: focused ? "tomato" : "black",
                 }}
               />
             </Animated.View>
