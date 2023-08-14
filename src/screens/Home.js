@@ -75,7 +75,8 @@ const styles = StyleSheet.create({
     marginTop: 240,
     borderTopLeftRadius:56,
     borderTopRightRadius:56,
-    alignItems:"center"
+    alignItems:"center",
+     position:"absolute"
   },
   flatListContent: {
     alignItems: "center", // Center the FlatList's content
