@@ -1,5 +1,5 @@
 import {View, StyleSheet, } from "react-native"
-import { Text } from "native-base";
+import { Text} from "native-base";
 
 
 const MainHeader = () => {

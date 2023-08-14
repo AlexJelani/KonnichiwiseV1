@@ -1,5 +1,6 @@
 import React from "react";
 import MainHeader from "../components/MainHeader"
+import ScreenHeader from "../components/ScreenHeader";
 import { categoriesData } from "../data";
 
 
@@ -44,18 +45,21 @@ const Home = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <MainHeader />
+      <ScreenHeader />
       <View style={styles.whiteSection}>
-      <FlatList
-        numColumns={numColumns} // Set the number of columns to 2
-        data={categoriesData}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-        contentContainerStyle={styles.flatListContent} // Added contentContainerStyle
-      />
+        <FlatList
+          numColumns={numColumns}
+          data={categoriesData}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+          contentContainerStyle={styles.flatListContent}
+        />
       </View>
     </View>
   );
 };
+
+
 
 export default Home;
 
@@ -65,7 +69,7 @@ const styles = StyleSheet.create({
     backgroundColor: "red",
     justifyContent: "flex-end"
   },
-  whiteSection:{
+   whiteSection:{
     backgroundColor:"#fff",
     flex:1,
     marginTop: 240,
