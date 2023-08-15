@@ -1,16 +1,10 @@
 import React from "react";
-import { View, ImageBackground, TouchableWithoutFeedback, StyleSheet, Text} from "react-native";
-import { FlatList } from "react-native"; // Import FlatList
+import { View, ImageBackground, TouchableWithoutFeedback, StyleSheet, Text, SectionList } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import { ScrollView } from 'react-native-virtualized-view';
 
-
-
 const Details = ({ route, navigation }) => {
-  // Destructure the params directly in the function signature or within the function body
   const { category } = route.params;
-  console.log(category.title); // Log the category title to the console
-
 
   const renderItem = ({ item }) => {
     return (
@@ -21,6 +15,17 @@ const Details = ({ route, navigation }) => {
       </View>
     );
   };
+
+  const renderSectionHeader = ({ section }) => (
+    <View style={styles.sectionHeader}>
+      <Text style={styles.sectionHeaderText}>{section.title}</Text>
+    </View>
+  );
+
+  const adjustedData = category.list.map(section => ({
+    title: section.title,
+    data: section.data
+  }));
 
   return (
     <View style={styles.container}>
@@ -41,19 +46,18 @@ const Details = ({ route, navigation }) => {
         </View>
       </ImageBackground>
       <ScrollView nestedScrollEnabled={true}>
-      <View style={styles.bodyText}>
-        <Text style={styles.descriptionName}>Overview</Text>
-        <Text style={styles.description}>{category.description}</Text>
-        <Text style={styles.descriptionName}>Phrases</Text>
-        <FlatList
-          data={category.list}
-          renderItem={renderItem}
-          keyExtractor={(item, index) => index.toString()}
-          ItemSeparatorComponent={() => <View style={styles.separator} />}
-        />
-      </View>
+        <View style={styles.bodyText}>
+          <Text style={styles.descriptionName}>Overview</Text>
+          <Text style={styles.description}>{category.description}</Text>
+          <SectionList
+            sections={adjustedData}
+            renderItem={renderItem}
+            renderSectionHeader={renderSectionHeader}
+            keyExtractor={(item, index) => index.toString()}
+            ItemSeparatorComponent={() => <View style={styles.separator} />}
+          />
+        </View>
       </ScrollView>
-
     </View>
   );
 };
@@ -121,6 +125,18 @@ const styles = StyleSheet.create({
   separator: {
     height: 1,
     backgroundColor: "#000000"
+  },
+  sectionHeader: {
+    backgroundColor: "grey",
+    paddingHorizontal: 15,
+    paddingVertical: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: "#000000"
+  },
+  sectionHeaderText: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#fff"
   }
 
 
