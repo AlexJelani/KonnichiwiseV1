@@ -5,11 +5,11 @@ const ScreenHeader = () => {
   return (
     <View style={styles.container}>
       <Image source={require('../images/JAPANTRAVEL.png')}
-                       style={{
-                         width: 300,
-                         height:300,
-                         position:"absolute"
-                       }}/>
+             style={{
+               width: 300,
+               height:300,
+               position:"absolute"
+             }}/>
     </View>
   );
 };
@@ -18,8 +18,7 @@ const styles = StyleSheet.create({
     flex:1,
     justifyContent: "flex-start", // Align items at the top
     alignItems:"center",
-    marginTop: -30, // Adjust this value to bring the header down
-
+    marginTop:-10
   },
 });
 
