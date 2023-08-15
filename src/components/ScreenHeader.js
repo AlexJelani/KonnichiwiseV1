@@ -8,6 +8,7 @@ const ScreenHeader = () => {
                        style={{
                          width: 300,
                          height:300,
+                         position:"absolute"
                        }}/>
     </View>
   );

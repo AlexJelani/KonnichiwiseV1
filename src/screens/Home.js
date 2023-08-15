@@ -1,5 +1,5 @@
 import React from "react";
-import MainHeader from "../components/MainHeader"
+import MainHeader from "../components/MainHeader";
 import ScreenHeader from "../components/ScreenHeader";
 import { categoriesData } from "../data";
 
@@ -14,10 +14,9 @@ import {
 } from "react-native";
 
 
-
 const Home = ({ navigation }) => {
   const numColumns = 2;
-  const windowWidth = Dimensions.get('window').width;
+  const windowWidth = Dimensions.get("window").width;
   const horizontalPadding = 20;
   const cardWidth = (windowWidth - horizontalPadding * 3) / 2; // Two cards with 20 padding between them
 
@@ -47,6 +46,9 @@ const Home = ({ navigation }) => {
       <MainHeader />
       <ScreenHeader />
       <View style={styles.whiteSection}>
+        <View style={styles.cardsTitleContainer}>
+          <Text style={styles.cardsTitle}>Basic Travel Phrases</Text>
+        </View>
         <FlatList
           numColumns={numColumns}
           data={categoriesData}
@@ -60,7 +62,6 @@ const Home = ({ navigation }) => {
 };
 
 
-
 export default Home;
 
 const styles = StyleSheet.create({
@@ -69,20 +70,34 @@ const styles = StyleSheet.create({
     backgroundColor: "red",
     justifyContent: "flex-end"
   },
-   whiteSection:{
-    backgroundColor:"#fff",
-    flex:1,
+  whiteSection: {
+    backgroundColor: "#fff",
+    flex: 1,
     marginTop: 240,
-    borderTopLeftRadius:56,
-    borderTopRightRadius:56,
-    alignItems:"center",
-     position:"absolute"
+    borderTopLeftRadius: 56,
+    borderTopRightRadius: 56,
+    alignItems: "center",
+    position: "absolute"
+  },
+  cardsTitleContainer: {
+    position: "absolute",
+    top: 40, // Adjust this value to control the vertical position
+    left: 0,
+    right: 0,
+    alignItems: "center",
+    marginTop:-40
+  },
+  cardsTitle: {
+    fontWeight: "bold",
+    color: "black",
+    fontSize: 22,
+
   },
   flatListContent: {
     alignItems: "center", // Center the FlatList's content
     paddingTop: 20, // Add padding at the top for spacing
     paddingLeft: 20, // Add left padding
-    paddingRight:20
+    paddingRight: 20
 
   },
   categories: {
@@ -95,18 +110,18 @@ const styles = StyleSheet.create({
   },
   cardContainer: {
     flex: 1,
-    alignItems: "center",
+    alignItems: "center"
     //paddingHorizontal: 5, // Add some horizontal padding for spacing
 
   },
   categoryBackground: {
-    flex:1,
+    flex: 1,
     height: 180,
     width: 150,
     marginRight: 15,
     justifyContent: "center",
     alignItems: "center",
-    marginVertical: 15,
+    marginVertical: 15
     //left: 20
   },
   categoryText: {
@@ -117,10 +132,10 @@ const styles = StyleSheet.create({
     bottom: 10
   },
   darkness: {
-    position: 'absolute',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    width: '100%', // Set to cover the entire width of the card
-    height: '100%', // Set to cover the entire height of the card
-    borderRadius: 20,
-  },
+    position: "absolute",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    width: "100%", // Set to cover the entire width of the card
+    height: "100%", // Set to cover the entire height of the card
+    borderRadius: 20
+  }
 });
