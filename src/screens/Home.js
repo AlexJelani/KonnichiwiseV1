@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "red",
-    justifyContent: "flex-end"
+    justifyContent: "flex-end",
   },
   whiteSection: {
     backgroundColor: "#fff",
@@ -110,8 +110,7 @@ const styles = StyleSheet.create({
   },
   cardContainer: {
     flex: 1,
-    alignItems: "center"
-    //paddingHorizontal: 5, // Add some horizontal padding for spacing
+    alignItems: "center",
 
   },
   categoryBackground: {

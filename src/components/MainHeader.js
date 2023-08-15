@@ -5,20 +5,25 @@ import { Text } from "native-base";
 const MainHeader = () => {
   return (
     <View style={styles.container}>
-      <Text fontSize="3xl" bold style={styles.textStyle}>KonnichiWise</Text>
+      <Text style={styles.textStyle}>KonnichiWise</Text>
+
     </View>
   );
 };
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    justifyContent: "center",
     alignItems: "center",
-  },
-  textStyle:{
-    fontFamily: "NightinTokyo"
 
-  }
+
+
+
+  },
+  textStyle: {
+    fontFamily: "nuku1",
+    fontSize: 20,
+
+
+  },
 });
 
 export default MainHeader;

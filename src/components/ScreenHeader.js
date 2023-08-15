@@ -18,6 +18,8 @@ const styles = StyleSheet.create({
     flex:1,
     justifyContent: "flex-start", // Align items at the top
     alignItems:"center",
+    marginTop: 30, // Adjust this value to bring the header down
+
   },
 });
 
