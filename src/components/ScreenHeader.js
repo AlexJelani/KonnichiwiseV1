@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
     flex:1,
     justifyContent: "flex-start", // Align items at the top
     alignItems:"center",
+    marginTop:-10
   },
 });
 
