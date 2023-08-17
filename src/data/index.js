@@ -1,42 +1,48 @@
 export const categoriesData = [
+
   {
     id: "1",
-    title: "On the Train",
-    image: require("../images/TRAIN.jpg"),
-    description: "Learn about Japanese train etiquette and useful phrases for using trains.",
+    title: "General",
+    image: require("../images/TEMPLES.jpg"),
+    description: "Explore Japanese shrine and temple etiquette, and common phrases used in these places.",
     list: [
       {
-        title: 'Common Etiquette',
+        title: 'Visiting and Praying',
         data: [
           {
-            english: "Excuse me / I'm sorry",
-            furigana: "Sumimasen",
-            japanese: "すみません"
-          },
-          {
-            english: "Please",
-            furigana: "Onegaishimasu",
-            japanese: "お願いします"
+            english: "I'm going to pray / visit",
+            furigana: "O-mairi shimasu",
+            japanese: "お参りします"
           }
         ],
       },
       {
-        title: 'Mobile Phone Usage',
+        title: 'Making a Request',
         data: [
           {
-            english: "Please refrain from using mobile phones during the ride",
-            furigana: "Joushachuu no keitai denwa no shiyou wa okuranaikudasai",
-            japanese: "乗車中の携帯電話の使用はお控えください"
+            english: "I have a favor to ask",
+            furigana: "Onegai ga arimasu",
+            japanese: "お願いがあります"
           }
         ],
       },
       {
-        title: 'Requesting a Seat',
+        title: 'Temple/Shrine Stamp',
         data: [
           {
-            english: "Could you please give me your seat?",
-            furigana: "Seki o yuzutte itadakemasen ka",
-            japanese: "席を譲っていただけませんか"
+            english: "Could I receive a temple/shrine stamp?",
+            furigana: "Goshuin o itadakemasu ka",
+            japanese: "御朱印をいただけますか"
+          }
+        ],
+      },
+      {
+        title: 'Shoes Etiquette',
+        data: [
+          {
+            english: "Please take off your shoes",
+            furigana: "Kutsu o nuide kudasai",
+            japanese: "靴を脱いでください"
           }
         ],
       }
@@ -45,7 +51,7 @@ export const categoriesData = [
 
   {
     id: "2",
-    title: "At Restaurants",
+    title: "Eating Out",
     image: require("../images/RESTAURANT.jpg"),
     description: "Learn dining etiquette and essential phrases for eating at Japanese restaurants.",
     list: [
@@ -91,59 +97,32 @@ export const categoriesData = [
       }
     ]
   },
-
   {
     id: "3",
-    title: "Shrines and Temples",
-    image: require("../images/TEMPLES.jpg"),
-    description: "Explore Japanese shrine and temple etiquette, and common phrases used in these places.",
+    title: "Train",
+    image: require("../images/TRAIN.jpg"),
+    description: "Learn about Japanese train etiquette and useful phrases for using trains.",
     list: [
       {
-        title: 'Visiting and Praying',
+        title: 'Common Etiquette',
         data: [
           {
-            english: "I'm going to pray / visit",
-            furigana: "O-mairi shimasu",
-            japanese: "お参りします"
-          }
-        ],
-      },
-      {
-        title: 'Making a Request',
-        data: [
+            english: "Excuse me / I'm sorry",
+            furigana: "Sumimasen",
+            japanese: "すみません"
+          },
           {
-            english: "I have a favor to ask",
-            furigana: "Onegai ga arimasu",
-            japanese: "お願いがあります"
+            english: "Please",
+            furigana: "Onegaishimasu",
+            japanese: "お願いします"
           }
-        ],
-      },
-      {
-        title: 'Temple/Shrine Stamp',
-        data: [
-          {
-            english: "Could I receive a temple/shrine stamp?",
-            furigana: "Goshuin o itadakemasu ka",
-            japanese: "御朱印をいただけますか"
-          }
-        ],
-      },
-      {
-        title: 'Shoes Etiquette',
-        data: [
-          {
-            english: "Please take off your shoes",
-            furigana: "Kutsu o nuide kudasai",
-            japanese: "靴を脱いでください"
-          }
-        ],
-      }
+        ]
+      } // <-- You were missing a closing curly brace here
     ]
-  }
-  ,
+  },
   {
     id: "4",
-    title: "At the Hospital",
+    title: "Medical",
     image: require("../images/HOSPITAL.jpg"),
     description: "Learn essential Japanese phrases for seeking medical assistance and navigating hospitals.",
     list: [
@@ -180,5 +159,6 @@ export const categoriesData = [
     ]
   }
 
-];
+]
+
 
