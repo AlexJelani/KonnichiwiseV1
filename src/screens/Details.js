@@ -9,9 +9,9 @@ const Details = ({ route, navigation }) => {
   const renderItem = ({ item }) => {
     return (
       <View style={styles.phraseContainer}>
-        <Text style={styles.phraseText}>{item.english}</Text>
-        <Text style={styles.phraseText}>{item.furigana}</Text>
+        <Text style={styles.phraseTextEnglish}>{item.english}</Text>
         <Text style={styles.phraseText}>{item.japanese}</Text>
+        <Text style={styles.phraseTextFurigana}>{item.furigana}</Text>
       </View>
     );
   };
@@ -121,6 +121,18 @@ const styles = StyleSheet.create({
   phraseText: {
     fontSize: 18,
     color: "#333"
+  },
+  phraseTextEnglish: {
+    fontSize: 18,
+    color: "#333",
+    fontWeight:"bold"
+  },
+  phraseTextFurigana: {
+    fontSize: 18,
+    backgroundColor:'#ADD8E6',
+    fontWeight:"bold",
+    color: "#000000"
+
   },
   separator: {
     height: 1,
