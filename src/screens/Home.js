@@ -10,7 +10,7 @@ import {
   Text,
   FlatList,
   ImageBackground,
-  TouchableOpacity, Dimensions
+  TouchableOpacity, Dimensions, Image
 } from "react-native";
 
 
@@ -34,6 +34,7 @@ const Home = ({ navigation }) => {
             imageStyle={{ borderRadius: 20 }}
           >
             <View style={styles.darkness} />
+            <Image source={item.icon} style={styles.categoryImage} />
             <Text style={styles.categoryText}>{item.title}</Text>
           </ImageBackground>
         </View>
@@ -92,6 +93,13 @@ const styles = StyleSheet.create({
     color: "black",
     fontSize: 22,
 
+  },
+  categoryImage: {
+    width: 60, // Adjust the width and height according to your icon size
+    height: 60,
+    resizeMode: "contain", // Adjust the resizeMode as needed
+    tintColor: 'white',
+    marginBottom:5
   },
   flatListContent: {
     alignItems: "center", // Center the FlatList's content

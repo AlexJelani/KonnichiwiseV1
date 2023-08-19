@@ -5,6 +5,7 @@ export const categoriesData = [
     title: "General",
     image: require("../images/TEMPLES.jpg"),
     description: "Learn about some basic etiquette, and common phrases used in Japan.",
+    icon: require("../../assets/icons/general.png"), // Add the icon source here
     list: [
       {
         title: "Meeting people",
@@ -91,6 +92,7 @@ export const categoriesData = [
     title: "Eating Out",
     image: require("../images/RESTAURANT.jpg"),
     description: "Learn dining etiquette and essential phrases for eating at Japanese restaurants.",
+    icon: require("../../assets/icons/restaurant.png"), // Add the icon source here
     list: [
       {
         title: "Eating Out: What You Will Hear",
@@ -176,6 +178,7 @@ export const categoriesData = [
     title: "Train",
     image: require("../images/TRAIN.jpg"),
     description: "Learn about Japanese train etiquette and useful phrases for using trains.",
+    icon: require("../../assets/icons/train.png"), // Add the icon source here
     list: [
       {
         title: "Common Etiquette",
@@ -219,6 +222,7 @@ export const categoriesData = [
     title: "Medical",
     image: require("../images/HOSPITAL.jpg"),
     description: "Learn essential Japanese phrases for seeking medical assistance and navigating hospitals.",
+    icon: require("../../assets/icons/first-aid-kit.png"), // Add the icon source here
     list: [
       {
         title: "Emergency Assistance",
