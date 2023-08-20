@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import TabNavigator from "../navigation/TabNavigator";
 import Details from "../screens/Details";
+import QuizPage from "../screens/QuizPage";
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +21,11 @@ const StackNavigation = () => {
           <Stack.Screen
             name="Details"
             component={Details}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="QuizPage"
+            component={QuizPage}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>

@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Image, Animated } from "react-native"; // Import Animated from 'react-native'
 import Home from "../screens/Home";
-import Quiz from "../screens/Quiz";
+import QuizWelcome from "../screens/QuizWelcome";
 import icons from "../constants/icons";
 
 const Tab = createBottomTabNavigator();
@@ -50,7 +50,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name="Quiz"
-        component={Quiz}
+        component={QuizWelcome}
         options={{
           tabBarIcon: ({ focused }) => (
             <Animated.View style={tabBarIconStyle(focused)}>
