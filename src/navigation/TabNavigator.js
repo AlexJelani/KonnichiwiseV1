@@ -7,7 +7,7 @@ import icons from "../constants/icons";
 
 const Tab = createBottomTabNavigator();
 
-const TabNavigator = () => {
+export const TabNavigator = () => {
   const scaleValue = useRef(new Animated.Value(1)).current;
 
   const tabBarIconStyle = (focused) => {

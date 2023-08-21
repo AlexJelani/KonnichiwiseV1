@@ -2,7 +2,7 @@ import React from "react";
 import { NativeBaseProvider } from "native-base";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import TabNavigator from "../navigation/TabNavigator";
+import TabNavigator from "../navigation/TabNavigator"; // Import your TabNavigator
 import Details from "../screens/Details";
 import QuizPage from "../screens/QuizPage";
 
@@ -12,21 +12,21 @@ const StackNavigation = () => {
   return (
     <NativeBaseProvider>
       <NavigationContainer>
-        <Stack.Navigator options={{ headerShown: false }} initialRouteName="Home">
+        <Stack.Navigator
+          initialRouteName="MainTabNavigator"
+          screenOptions={{ headerShown: false }}
+        >
           <Stack.Screen
-            name="Home"
+            name="MainTabNavigator"
             component={TabNavigator}
-            options={{ headerShown: false }}
           />
           <Stack.Screen
             name="Details"
             component={Details}
-            options={{ headerShown: false }}
           />
           <Stack.Screen
             name="QuizPage"
             component={QuizPage}
-            options={{ headerShown: false }}
           />
         </Stack.Navigator>
       </NavigationContainer>
