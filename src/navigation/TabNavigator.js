@@ -4,6 +4,7 @@ import { Image, Animated } from "react-native"; // Import Animated from 'react-n
 import Home from "../screens/Home";
 import QuizWelcome from "../screens/QuizWelcome";
 import icons from "../constants/icons";
+import QuizPage from "../screens/QuizPage";
 
 const Tab = createBottomTabNavigator();
 
