@@ -13,7 +13,7 @@ const StackNavigation = () => {
       <NavigationContainer>
         <Stack.Navigator options={{ headerShown: false }} initialRouteName="Home">
           <Stack.Screen
-            name="Home"
+            name="HomeScreen"
             component={TabNavigator}
             options={{ headerShown: false }}
           />
