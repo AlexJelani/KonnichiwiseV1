@@ -1,11 +1,13 @@
 import React, { useRef } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Image, Animated } from "react-native"; // Import Animated from 'react-native'
-import Home from "../screens/Home";
 import QuizWelcome from "../screens/QuizWelcome";
+import Home from "../screens/Home"
 import icons from "../constants/icons";
 
 const Tab = createBottomTabNavigator();
+
+
 
 export const TabNavigator = () => {
   const scaleValue = useRef(new Animated.Value(1)).current;

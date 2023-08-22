@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -8,11 +8,12 @@ import {
   TouchableOpacity,
   Modal,
   Animated,
-  StyleSheet, // Import StyleSheet module
-} from 'react-native';
-import { COLORS, SIZES } from '../quizconstants';
-import data from '../data/QuizData';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+  StyleSheet // Import StyleSheet module
+} from "react-native";
+import { COLORS, SIZES } from "../quizconstants";
+import data from "../data/QuizData";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+
 
 const QuizPage = () => {
   const allQuestions = data;
@@ -25,7 +26,7 @@ const QuizPage = () => {
   const [showScoreModal, setShowScoreModal] = useState(false);
 
   const validateAnswer = (selectedOption) => {
-    let correct_option = allQuestions[currentQuestionIndex]['correct_option'];
+    let correct_option = allQuestions[currentQuestionIndex]["correct_option"];
     setCurrentOptionSelected(selectedOption);
     setCorrectOption(correct_option);
     setIsOptionsDisabled(true);
@@ -52,7 +53,7 @@ const QuizPage = () => {
     Animated.timing(progress, {
       toValue: currentQuestionIndex + 1,
       duration: 1000,
-      useNativeDriver: false,
+      useNativeDriver: false
     }).start();
   };
 
@@ -69,7 +70,7 @@ const QuizPage = () => {
     Animated.timing(progress, {
       toValue: 0,
       duration: 1000,
-      useNativeDriver: false,
+      useNativeDriver: false
     }).start();
   };
 
@@ -114,8 +115,8 @@ const QuizPage = () => {
                   ? `${COLORS.success}20`
                   : option == currentOptionSelected
                     ? `${COLORS.error}20`
-                    : `${COLORS.secondary}20`,
-              },
+                    : `${COLORS.secondary}20`
+              }
             ]}
           >
             <Text style={styles.optionText}>{option}</Text>
@@ -160,7 +161,7 @@ const QuizPage = () => {
   const [progress, setProgress] = useState(new Animated.Value(0));
   const progressAnim = progress.interpolate({
     inputRange: [0, allQuestions.length],
-    outputRange: ['0%', '100%'],
+    outputRange: ["0%", "100%"]
   });
 
   const renderProgressBar = () => {
@@ -189,6 +190,7 @@ const QuizPage = () => {
         {/* Next Button */}
         {renderNextButton()}
 
+
         {/* Score Modal */}
         <Modal
           animationType="slide"
@@ -199,8 +201,8 @@ const QuizPage = () => {
             <View style={styles.scoreModalContent}>
               <Text style={styles.scoreModalTitle}>
                 {score > allQuestions.length / 2
-                  ? 'Congratulations!'
-                  : 'Oops!'}
+                  ? "Congratulations!"
+                  : "Oops!"}
               </Text>
               <View style={styles.scoreValueContainer}>
                 <Text
@@ -210,8 +212,8 @@ const QuizPage = () => {
                       color:
                         score > allQuestions.length / 2
                           ? COLORS.success
-                          : COLORS.error,
-                    },
+                          : COLORS.error
+                    }
                   ]}
                 >
                   {score}
@@ -231,9 +233,9 @@ const QuizPage = () => {
 
         {/* Background Image */}
         <Image
-          source={require('../images/DottedBG.png')}
+          source={require("../images/DottedBG.png")}
           style={styles.backgroundImage}
-          resizeMode={'contain'}
+          resizeMode={"contain"}
         />
       </View>
 
@@ -243,131 +245,131 @@ const QuizPage = () => {
 
 const styles = StyleSheet.create({
   safeArea: {
-    flex: 1,
+    flex: 1
   },
   container: {
     flex: 1,
     paddingVertical: 40,
     paddingHorizontal: 16,
     backgroundColor: COLORS.background,
-    position: 'relative',
+    position: "relative"
   },
   progressBarContainer: {
-    width: '100%',
+    width: "100%",
     height: 20,
     borderRadius: 20,
-    backgroundColor: '#00000020',
+    backgroundColor: "#00000020"
   }, // Close progressBarContainer
   progressBarFill: {
     height: 20,
     borderRadius: 20,
-    backgroundColor: COLORS.accent,
+    backgroundColor: COLORS.accent
   }, // Open progressBarFill
   questionContainer: {
-    marginVertical: 40,
+    marginVertical: 40
   },
   questionCounter: {
-    flexDirection: 'row',
-    alignItems: 'flex-end',
+    flexDirection: "row",
+    alignItems: "flex-end"
   },
   questionCounterText: {
     color: COLORS.white,
     fontSize: 20,
     opacity: 0.6,
-    marginRight: 2,
+    marginRight: 2
   },
   questionText: {
     color: COLORS.white,
-    fontSize: 30,
+    fontSize: 30
   },
   optionButton: {
     borderWidth: 3,
     height: 60,
     borderRadius: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
     paddingHorizontal: 20,
-    marginVertical: 10,
+    marginVertical: 10
   },
   optionText: {
     fontSize: 20,
-    color: COLORS.white,
+    color: COLORS.white
   },
   checkOrCross: {
     width: 30,
     height: 30,
     borderRadius: 30 / 2,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center"
   },
   checkOrCrossIcon: {
     color: COLORS.white,
-    fontSize: 20,
+    fontSize: 20
   },
   nextButton: {
     marginTop: 20,
-    width: '100%',
+    width: "100%",
     backgroundColor: COLORS.accent,
     padding: 20,
-    borderRadius: 5,
+    borderRadius: 5
   },
   nextButtonText: {
     fontSize: 20,
     color: COLORS.white,
-    textAlign: 'center',
+    textAlign: "center"
   },
   scoreModal: {
     flex: 1,
     backgroundColor: COLORS.primary,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center"
   },
   scoreModalContent: {
     backgroundColor: COLORS.white,
-    width: '90%',
+    width: "90%",
     borderRadius: 20,
     padding: 20,
-    alignItems: 'center',
+    alignItems: "center"
   },
   scoreModalTitle: {
     fontSize: 30,
-    fontWeight: 'bold',
+    fontWeight: "bold"
   },
   scoreValueContainer: {
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    marginVertical: 20,
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    marginVertical: 20
   },
   scoreValue: {
-    fontSize: 30,
+    fontSize: 30
   },
   scoreDivider: {
     fontSize: 20,
-    color: COLORS.black,
+    color: COLORS.black
   },
   retryButton: {
     backgroundColor: COLORS.accent,
     padding: 20,
-    width: '100%',
-    borderRadius: 20,
+    width: "100%",
+    borderRadius: 20
   },
   retryButtonText: {
-    textAlign: 'center',
+    textAlign: "center",
     color: COLORS.white,
-    fontSize: 20,
+    fontSize: 20
   },
   backgroundImage: {
     width: SIZES.width,
     height: 130,
     zIndex: -1,
-    position: 'absolute',
+    position: "absolute",
     bottom: 0,
     left: 0,
     right: 0,
-    opacity: 0.5,
-  },
+    opacity: 0.5
+  }
 });
 
 
