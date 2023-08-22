@@ -1,6 +1,7 @@
-import React, { useRef } from "react";
+import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Image, Animated } from "react-native"; // Import Animated from 'react-native'
+import { Image } from "react-native";
+import * as Animatable from "react-native-animatable"; // Import Animatable
 import Home from "../screens/Home";
 import Quiz from "../screens/Quiz";
 import icons from "../constants/icons";
@@ -8,27 +9,13 @@ import icons from "../constants/icons";
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
-  const scaleValue = useRef(new Animated.Value(1)).current;
-
-  const tabBarIconStyle = (focused) => {
-    const scale = focused ? 1.2 : 1; // Adjust the scale factor as needed
-    Animated.spring(scaleValue, {
-      toValue: scale,
-      useNativeDriver: false, // Required for certain properties like tintColor
-    }).start();
-
-    return {
-      transform: [{ scale: scaleValue }],
-    };
-  };
-
   return (
     <Tab.Navigator
       screenOptions={{
         tabBarShowLabel: false,
         headerShown: false,
         tabBarActiveTintColor: "tomato",
-        tabBarInactiveTintColor: "black"
+        tabBarInactiveTintColor: "black",
       }}
     >
       <Tab.Screen
@@ -36,15 +23,19 @@ const TabNavigator = () => {
         component={Home}
         options={{
           tabBarIcon: ({ focused }) => (
-            // Use Animated.View to apply the animation to the tab icon
-            <Animated.View style={tabBarIconStyle(focused)}>
+            <Animatable.View
+              animation={focused ? "zoomIn" : undefined} // Apply animation only when focused
+              duration={300} // Set the duration of the animation
+            >
               <Image
                 source={icons.Home}
                 style={{
+                  width: focused ? 60 : 50, // Adjust the width and height as needed
+                  height: focused ? 60 : 50,
                   tintColor: focused ? "tomato" : "black",
                 }}
               />
-            </Animated.View>
+            </Animatable.View>
           ),
         }}
       />
@@ -53,16 +44,19 @@ const TabNavigator = () => {
         component={Quiz}
         options={{
           tabBarIcon: ({ focused }) => (
-            <Animated.View style={tabBarIconStyle(focused)}>
+            <Animatable.View
+              animation={focused ? "zoomIn" : undefined} // Apply animation only when focused
+              duration={300} // Set the duration of the animation
+            >
               <Image
                 source={icons.Quiz}
                 style={{
-                  width: 40,
-                  height: 40,
+                  width: focused ? 45 : 35, // Adjust the width and height as needed
+                  height: focused ? 45 : 35,
                   tintColor: focused ? "tomato" : "black",
                 }}
               />
-            </Animated.View>
+            </Animatable.View>
           ),
         }}
       />
@@ -71,5 +65,3 @@ const TabNavigator = () => {
 };
 
 export default TabNavigator;
-
-
