@@ -1,78 +1,53 @@
 let data;
 export default data = [
   {
-    question: "What’s the biggest planet in our solar system?",
-    options: ["Jupiter","Saturn","Neptune","Mercury"],
-    correct_option: "Jupiter"
+    question: "How do you say 'Hello' in Japanese?",
+    options: ["Konnichiwa", "Hajimemashite", "Yoroshiku onegaishimasu", "Eigo o hanashimasu ka?"],
+    correct_option: "Konnichiwa"
   },
   {
-    question: "What attraction in India is one of the famus in the world?",
-    options: ["Chand Minar","Taj Mahal","Stadium"],
-    correct_option: "Taj Mahal"
+    question: "What is the Japanese phrase for 'Nice to meet you'?",
+    options: ["Konnichiwa", "Hajimemashite", "Yoroshiku onegaishimasu", "Eigo o hanashimasu ka?"],
+    correct_option: "Hajimemashite"
   },
   {
-    question: "What land animal can open its mouth the widest?",
-    options: ["Alligator","Crocodile","Baboon","Hippo"],
-    correct_option: "Hippo"
+    question: "How would you ask 'Do you speak English?' in Japanese?",
+    options: ["Konnichiwa", "Hajimemashite", "Yoroshiku onegaishimasu", "Eigo o hanashimasu ka?"],
+    correct_option: "Eigo o hanashimasu ka?"
   },
   {
-    question: "What is the largest animal on Earth?",
-    options: ["The African elephant","The blue whale","The sperm whale","The giant squid"],
-    correct_option: "The blue whale"
+    question: "What does 'Kore wa nan desu ka?' mean in English?",
+    options: ["What is your name?", "How much does this cost?", "Can you please help me?", "What is this?"],
+    correct_option: "What is this?"
   },
   {
-    question: "What is the only flying mammal?",
-    options: ["The bat","The flying squirrel","The bald eagle","The colugo"],
-    correct_option: "The bat"
+    question: "How would you ask 'Can you please help me?' in Japanese?",
+    options: ["Konnichiwa", "Hajimemashite", "Yoroshiku onegaishimasu", "Tasukete moraemasuka?"],
+    correct_option: "Tasukete moraemasuka?"
   },
   {
-    question: "What’s the biggest planet in our solar system?",
-    options: ["Jupiter","Saturn","Neptune","Mercury"],
-    correct_option: "Jupiter"
+    question: "What does 'Yoroshiku onegaishimasu' mean in English?",
+    options: ["Hello", "Nice to meet you", "Please treat me favorably", "Do you speak English?"],
+    correct_option: "Please treat me favorably"
   },
   {
-    question: "What attraction in India is one of the famus in the world?",
-    options: ["Chand Minar","Taj Mahal","Stadium"],
-    correct_option: "Taj Mahal"
+    question: "How do you say 'Nice to meet you' in Japanese?",
+    options: ["Konnichiwa", "Hajimemashite", "Yoroshiku onegaishimasu", "Eigo o hanashimasu ka?"],
+    correct_option: "Hajimemashite"
   },
   {
-    question: "What land animal can open its mouth the widest?",
-    options: ["Alligator","Crocodile","Baboon","Hippo"],
-    correct_option: "Hippo"
+    question: "What is the English translation of 'Eigo o hanashimasu ka?'?",
+    options: ["Do you speak English?", "How much does this cost?", "Can you please help me?", "What is your name?"],
+    correct_option: "Do you speak English?"
   },
   {
-    question: "What is the largest animal on Earth?",
-    options: ["The African elephant","The blue whale","The sperm whale","The giant squid"],
-    correct_option: "The blue whale"
+    question: "How do you greet someone with 'Hello' in Japanese?",
+    options: ["Konnichiwa", "Hajimemashite", "Yoroshiku onegaishimasu", "Tasukete moraemasuka?"],
+    correct_option: "Konnichiwa"
   },
   {
-    question: "What is the only flying mammal?",
-    options: ["The bat","The flying squirrel","The bald eagle","The colugo"],
-    correct_option: "The bat"
-  },
-  {
-    question: "What’s the biggest planet in our solar system?",
-    options: ["Jupiter","Saturn","Neptune","Mercury"],
-    correct_option: "Jupiter"
-  },
-  {
-    question: "What attraction in India is one of the famus in the world?",
-    options: ["Chand Minar","Taj Mahal","Stadium"],
-    correct_option: "Taj Mahal"
-  },
-  {
-    question: "What land animal can open its mouth the widest?",
-    options: ["Alligator","Crocodile","Baboon","Hippo"],
-    correct_option: "Hippo"
-  },
-  {
-    question: "What is the largest animal on Earth?",
-    options: ["The African elephant","The blue whale","The sperm whale","The giant squid"],
-    correct_option: "The blue whale"
-  },
-  {
-    question: "What is the only flying mammal?",
-    options: ["The bat","The flying squirrel","The bald eagle","The colugo"],
-    correct_option: "The bat"
+    question: "What is the Japanese phrase for 'How much does this cost?'?",
+    options: ["Konnichiwa", "Hajimemashite", "Yoroshiku onegaishimasu", "Kore wa ikura desu ka?"],
+    correct_option: "Kore wa ikura desu ka?"
   }
 ]

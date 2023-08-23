@@ -1,87 +1,71 @@
-import React, { useRef } from "react";
+import React from "react";
 import { NativeBaseProvider } from "native-base";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Image, Animated } from "react-native";
-import icons from "../constants/icons";
+import { Image } from "react-native";
+import * as Animatable from 'react-native-animatable';
+
 import Home from "../screens/Home";
 import Details from "../screens/Details";
 import QuizPage from "../screens/QuizPage";
 import QuizWelcome from "../screens/QuizWelcome";
+import icons from "../constants/icons";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
+const QuizStack = createNativeStackNavigator(); // Create a stack navigator for the Quiz tab
+
+// Define QuizStackScreen here to set initialRouteName to "QuizWelcome"
+const QuizStackScreen = () => {
+  return (
+    <QuizStack.Navigator initialRouteName="QuizWelcome">
+      <QuizStack.Screen name="QuizPage" component={QuizPage} />
+      <QuizStack.Screen name="QuizWelcome" component={QuizWelcome} />
+    </QuizStack.Navigator>
+  );
+};
+
 const TabNavigator = () => {
-  const scaleValue = useRef(new Animated.Value(1)).current;
-
-  const tabBarIconStyle = (focused) => {
-    const scale = focused ? 1.2 : 1; // Adjust the scale factor as needed
-    Animated.spring(scaleValue, {
-      toValue: scale,
-      useNativeDriver: false, // Required for certain properties like tintColor
-    }).start();
-
-    return {
-      transform: [{ scale: scaleValue }],
-    };
-  };
+  const tabBarIcon = (icon, focused, iconSize) => (
+    <Animatable.View
+      animation={focused ? "zoomIn" : undefined}
+      duration={300}
+    >
+      <Image
+        source={icon}
+        style={{
+          width: iconSize,
+          height: iconSize,
+          tintColor: focused ? "tomato" : "black",
+        }}
+      />
+    </Animatable.View>
+  );
 
   return (
     <Tab.Navigator
-      screenOptions={{
+      screenOptions={({ route }) => ({
         tabBarShowLabel: false,
         headerShown: false,
         tabBarActiveTintColor: "tomato",
         tabBarInactiveTintColor: "black",
-      }}
+        tabBarIcon: ({ focused }) => {
+          if (route.name === "Home") {
+            return tabBarIcon(icons.Home, focused, 60); // Home icon size
+          } else if (route.name === "Quiz") {
+            return tabBarIcon(icons.Quiz, focused, 35); // Adjust the Quiz icon size
+          }
+        },
+      })}
     >
-      <Tab.Screen
-        name="Home"
-        component={Home}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <Animated.View style={tabBarIconStyle(focused)}>
-              <Image
-                source={icons.Home}
-                style={{
-                  tintColor: focused ? "tomato" : "black",
-                }}
-              />
-            </Animated.View>
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Quiz"
-        component={QuizWelcome}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <Animated.View style={tabBarIconStyle(focused)}>
-              <Image
-                source={icons.Quiz}
-                style={{
-                  width: 40,
-                  height: 40,
-                  tintColor: focused ? "tomato" : "black",
-                }}
-              />
-            </Animated.View>
-          ),
-        }}
-      />
+      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Quiz" component={QuizStackScreen} />
     </Tab.Navigator>
   );
 };
-const QuizStack = () => {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name="QuizPage" component={QuizPage} />
-      <Stack.Screen name="QuizWelcome" component={QuizPage} />
-    </Stack.Navigator>
-  );
-};
+
 const StackNavigation = () => {
   return (
     <NativeBaseProvider>
@@ -92,11 +76,6 @@ const StackNavigation = () => {
         >
           <Stack.Screen name="Tab" component={TabNavigator} />
           <Stack.Screen name="Details" component={Details} />
-
-          <Stack.Screen name="QuizPage" component={QuizPage} />
-
-          <Stack.Screen name="QuizStack" component={QuizStack} />
-
         </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>
