@@ -11,6 +11,8 @@ import Details from "../screens/Details";
 import QuizPage from "../screens/QuizPage";
 import QuizWelcome from "../screens/QuizWelcome";
 import icons from "../constants/icons";
+//TODO Take off the QuizWelcome Header
+
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();

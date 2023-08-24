@@ -59,7 +59,7 @@ const QuizWelcome = ({ navigation }) =>{
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#38588b",
+    backgroundColor: "red",
     alignItem: "center",
     justifyContent: "center",
   },
