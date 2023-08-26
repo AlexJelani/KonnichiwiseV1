@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import MainHeader from "../components/MainHeader";
 import ScreenHeader from "../components/ScreenHeader";
-import { categoriesData } from "../data";
+import LandscapeScreenHeader from "../components/LandscapeScreenHeader";
 
+import { categoriesData } from "../data";
 
 import {
   View,
@@ -10,22 +11,49 @@ import {
   Text,
   FlatList,
   ImageBackground,
-  TouchableOpacity, Dimensions, Image
+  TouchableOpacity,
+  Dimensions,
+  Image,
+  ScrollView,
 } from "react-native";
 
 
 const Home = ({ navigation }) => {
   const numColumns = 2;
-  const windowWidth = Dimensions.get("window").width;
-  const horizontalPadding = 20;
-  const cardWidth = (windowWidth - horizontalPadding * 3) / 2; // Two cards with 20 padding between them
+  const [cardWidth, setCardWidth] = useState(
+    (Dimensions.get("window").width - 20 * 3) / 2
+  );
+
+  const updateCardWidth = () => {
+    setCardWidth((Dimensions.get("window").width - 20 * 3) / 2);
+  };
+
+  useEffect(() => {
+    Dimensions.addEventListener("change", updateCardWidth);
+
+    return () => {
+    };
+  }, []);
+
+  //Change orientation when rotated other than potrait
+  const isPortrait = Dimensions.get("window").height > Dimensions.get("window").width;
+
+  const renderScreenHeader = () => {
+    if (isPortrait) {
+      return <ScreenHeader />;
+    } else {
+      return <LandscapeScreenHeader />;
+    }
+  };
 
   const renderItem = ({ item }) => {
     return (
       <TouchableOpacity
-        onPress={() => navigation.navigate("Details", {
-          category: item
-        })}
+        onPress={() =>
+          navigation.navigate("Details", {
+            category: item,
+          })
+        }
       >
         <View style={styles.cardContainer}>
           <ImageBackground
@@ -43,9 +71,12 @@ const Home = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={styles.scrollContent}
+    >
       <MainHeader />
-      <ScreenHeader />
+      {renderScreenHeader()}
       <View style={styles.whiteSection}>
         <View style={styles.cardsTitleContainer}>
           <Text style={styles.cardsTitle}>Basic Travel Phrases</Text>
@@ -58,10 +89,9 @@ const Home = ({ navigation }) => {
           contentContainerStyle={styles.flatListContent}
         />
       </View>
-    </View>
+    </ScrollView>
   );
 };
-
 
 export default Home;
 
@@ -69,57 +99,44 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "red",
-    justifyContent: "flex-end",
+  },
+  scrollContent: {
+    flexGrow: 1,
   },
   whiteSection: {
     backgroundColor: "#fff",
-    flex: 1,
-    marginTop: 240,
     borderTopLeftRadius: 56,
     borderTopRightRadius: 56,
     alignItems: "center",
-    position: "absolute"
   },
   cardsTitleContainer: {
-    position: "absolute",
-    top: 40, // Adjust this value to control the vertical position
+    top: 40,
     left: 0,
     right: 0,
     alignItems: "center",
-    marginTop:-40
+    marginTop: -40,
   },
   cardsTitle: {
     fontWeight: "bold",
     color: "black",
     fontSize: 22,
-
   },
   categoryImage: {
-    width: 60, // Adjust the width and height according to your icon size
+    width: 60,
     height: 60,
-    resizeMode: "contain", // Adjust the resizeMode as needed
-    tintColor: 'white',
-    marginBottom:5
+    resizeMode: "contain",
+    tintColor: "white",
+    marginBottom: 5,
   },
   flatListContent: {
-    alignItems: "center", // Center the FlatList's content
-    paddingTop: 20, // Add padding at the top for spacing
-    paddingLeft: 20, // Add left padding
-    paddingRight: 20
-
-  },
-  categories: {
-    fontSize: 22,
-    fontWeight: "bold",
-    color: "#000000",
-    paddingHorizontal: 20,
-    marginBottom: 10,
-    alignSelf: "flex-start"
+    alignItems: "center",
+    paddingTop: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
   },
   cardContainer: {
     flex: 1,
     alignItems: "center",
-
   },
   categoryBackground: {
     flex: 1,
@@ -128,21 +145,20 @@ const styles = StyleSheet.create({
     marginRight: 15,
     justifyContent: "center",
     alignItems: "center",
-    marginVertical: 15
-    //left: 20
+    marginVertical: 15,
   },
   categoryText: {
     textAlign: "center",
     fontSize: 25,
     color: "#f8f5f5",
     fontWeight: "bold",
-    bottom: 10
+    bottom: 10,
   },
   darkness: {
     position: "absolute",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
-    width: "100%", // Set to cover the entire width of the card
-    height: "100%", // Set to cover the entire height of the card
-    borderRadius: 20
-  }
+    width: "100%",
+    height: "100%",
+    borderRadius: 20,
+  },
 });

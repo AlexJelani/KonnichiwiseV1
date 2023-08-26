@@ -3,38 +3,11 @@ import {View,
   Image,
   TouchableOpacity,
   StyleSheet,
-  Animated,} from "react-native"
-import React, { useState } from "react";
+  } from "react-native"
+import React from "react";
 
 
 const QuizWelcome = ({ navigation }) =>{
-  const [fadeAnim, setFadeAnim] = useState(new Animated.Value(1));
-  const [progress, setProgress] = useState(new Animated.Value(0));
-  const startQuiz = () => {
-    // Animated.timing(fadeAnim,{
-    //     toValue: 1,
-    //     duration: 1000,
-    //     useNativeDriver: false
-    // }).start();
-    Animated.sequence([
-      Animated.timing(fadeAnim, {
-        toValue: 0,
-        duration: 100,
-        useNativeDriver: false,
-      }),
-      Animated.timing(fadeAnim, {
-        toValue: 1,
-        duration: 1900,
-        useNativeDriver: false,
-      }),
-    ]).start();
-
-    Animated.timing(progress, {
-      toValue: 0 + 1,
-      duration: 2000,
-      useNativeDriver: false,
-    }).start();
-  };
 
   return (
     <View style={styles.container}>
@@ -46,7 +19,6 @@ const QuizWelcome = ({ navigation }) =>{
       <TouchableOpacity
         onPress={() => {
           navigation.navigate("QuizPage");
-          startQuiz();
         }}
         style={styles.btn}
       >
