@@ -23,8 +23,16 @@ const QuizStack = createNativeStackNavigator(); // Create a stack navigator for 
 const QuizStackScreen = () => {
   return (
     <QuizStack.Navigator initialRouteName="QuizWelcome">
-      <QuizStack.Screen name="QuizPage" component={QuizPage} />
-      <QuizStack.Screen name="QuizWelcome" component={QuizWelcome} />
+      <QuizStack.Screen
+        name="QuizPage"
+        component={QuizPage}
+        options={{ headerShown: true }} // Show header for QuizPage
+      />
+      <QuizStack.Screen
+        name="QuizWelcome"
+        component={QuizWelcome}
+        options={{ headerShown: false }} // Hide header for QuizWelcome
+      />
     </QuizStack.Navigator>
   );
 };
