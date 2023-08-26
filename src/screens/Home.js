@@ -79,7 +79,7 @@ const Home = ({ navigation }) => {
       {renderScreenHeader()}
       <View style={styles.whiteSection}>
         <View style={styles.cardsTitleContainer}>
-          <Text style={styles.cardsTitle}>Basic Travel Phrases</Text>
+          <Text style={styles.cardsTitle}></Text>
         </View>
         <FlatList
           numColumns={numColumns}
