@@ -233,7 +233,7 @@ const QuizPage = () => {
 
         {/* Background Image */}
         <Image
-          source={require("../images/DottedBG.png")}
+          source={require("../../assets/images/DottedBG.png")}
           style={styles.backgroundImage}
           resizeMode={"contain"}
         />

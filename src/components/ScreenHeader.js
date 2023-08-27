@@ -4,7 +4,7 @@ import {View, StyleSheet, Image } from "react-native"
 const ScreenHeader = () => {
   return (
     <View style={styles.container}>
-      <Image source={require('../images/JAPANTRAVEL.png')}
+      <Image source={require('../../assets/images/JAPANTRAVEL.png')}
              style={{
                width: 300,
                height:300,

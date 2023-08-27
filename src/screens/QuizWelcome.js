@@ -11,7 +11,7 @@ const QuizWelcome = ({ navigation }) =>{
 
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={require("../images/question-mark.png")} />
+      <Image style={styles.image} source={require("../../assets/images/question-mark.png")} />
       {/*PegandMarcoimage*/}
       <View style={styles.subContainer}>
         <Text style={styles.text}>Ready For your Written Test?</Text>

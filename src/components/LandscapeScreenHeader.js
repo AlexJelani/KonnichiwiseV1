@@ -5,7 +5,7 @@ const LandscapeSreenHeader = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../images/JAPANTRAVEL.png')}
+        source={require('../../assets/images/JAPANTRAVEL.png')}
         style={{
           width: 300,
           height: 300,

@@ -35,16 +35,16 @@ const Home = ({ navigation }) => {
     };
   }, []);
 
-  //Change orientation when rotated other than potrait
-  const isPortrait = Dimensions.get("window").height > Dimensions.get("window").width;
-
-  const renderScreenHeader = () => {
-    if (isPortrait) {
-      return <ScreenHeader />;
-    } else {
-      return <LandscapeScreenHeader />;
-    }
-  };
+  // //Change orientation when rotated other than potrait
+  // const isPortrait = Dimensions.get("window").height > Dimensions.get("window").width;
+  //
+  // const renderScreenHeader = () => {
+  //   if (isPortrait) {
+  //     return <ScreenHeader />;
+  //   } else {
+  //     return <LandscapeScreenHeader />;
+  //   }
+  // };
 
   const renderItem = ({ item }) => {
     return (
@@ -76,7 +76,7 @@ const Home = ({ navigation }) => {
       contentContainerStyle={styles.scrollContent}
     >
       <MainHeader />
-      {renderScreenHeader()}
+      {/*{renderScreenHeader()}*/}
       <View style={styles.whiteSection}>
         <View style={styles.cardsTitleContainer}>
           <Text style={styles.cardsTitle}></Text>
