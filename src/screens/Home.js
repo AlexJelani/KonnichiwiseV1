@@ -79,7 +79,7 @@ const Home = ({ navigation }) => {
       {/*{renderScreenHeader()}*/}
       <View style={styles.whiteSection}>
         <View style={styles.cardsTitleContainer}>
-          <Text style={styles.cardsTitle}></Text>
+          {/*<Text style={styles.cardsTitle}></Text>*/}
         </View>
         <FlatList
           numColumns={numColumns}
@@ -104,10 +104,13 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   whiteSection: {
+    flex:1,
     backgroundColor: "#fff",
     borderTopLeftRadius: 56,
     borderTopRightRadius: 56,
     alignItems: "center",
+    justifyContent: "flex-end", // Push the content to the bottom
+
   },
   cardsTitleContainer: {
     top: 40,
@@ -130,7 +133,7 @@ const styles = StyleSheet.create({
   },
   flatListContent: {
     alignItems: "center",
-    paddingTop: 20,
+    paddingTop: 90,
     paddingLeft: 20,
     paddingRight: 20,
   },
