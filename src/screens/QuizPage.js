@@ -175,78 +175,62 @@ const QuizPage = () => {
   };
 
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <View style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor={COLORS.primary} />
-      <View style={styles.container}>
-        {/* ProgressBar */}
-        {renderProgressBar()}
 
-        {/* Question */}
-        {renderQuestion()}
+      {/* Question */}
+      {renderQuestion()}
 
-        {/* Options */}
-        {renderOptions()}
+      {/* Options */}
+      {renderOptions()}
 
-        {/* Next Button */}
-        {renderNextButton()}
+      {/* Next Button */}
+      {renderNextButton()}
 
-
-        {/* Score Modal */}
-        <Modal
-          animationType="slide"
-          transparent={true}
-          visible={showScoreModal}
-        >
-          <View style={styles.scoreModal}>
-            <View style={styles.scoreModalContent}>
-              <Text style={styles.scoreModalTitle}>
-                {score > allQuestions.length / 2
-                  ? "Congratulations!"
-                  : "Oops!"}
-              </Text>
-              <View style={styles.scoreValueContainer}>
-                <Text
-                  style={[
-                    styles.scoreValue,
-                    {
-                      color:
-                        score > allQuestions.length / 2
-                          ? COLORS.success
-                          : COLORS.error
-                    }
-                  ]}
-                >
-                  {score}
-                </Text>
-                <Text style={styles.scoreDivider}>/ {allQuestions.length}</Text>
-              </View>
-              {/* Retry Quiz button */}
-              <TouchableOpacity
-                onPress={restartQuiz}
-                style={styles.retryButton}
+      {/* Score Modal */}
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={showScoreModal}
+      >
+        <View style={styles.scoreModal}>
+          <View style={styles.scoreModalContent}>
+            <Text style={styles.scoreModalTitle}>
+              {score > allQuestions.length / 2
+                ? "Congratulations!"
+                : "Oops!"}
+            </Text>
+            <View style={styles.scoreValueContainer}>
+              <Text
+                style={[
+                  styles.scoreValue,
+                  {
+                    color:
+                      score > allQuestions.length / 2
+                        ? COLORS.success
+                        : COLORS.error
+                  }
+                ]}
               >
-                <Text style={styles.retryButtonText}>Retry Quiz</Text>
-              </TouchableOpacity>
+                {score}
+              </Text>
+              <Text style={styles.scoreDivider}>/ {allQuestions.length}</Text>
             </View>
+            {/* Retry Quiz button */}
+            <TouchableOpacity
+              onPress={restartQuiz}
+              style={styles.retryButton}
+            >
+              <Text style={styles.retryButtonText}>Retry Quiz</Text>
+            </TouchableOpacity>
           </View>
-        </Modal>
-
-        {/* Background Image */}
-        <Image
-          source={require("../../assets/images/DottedBG.png")}
-          style={styles.backgroundImage}
-          resizeMode={"contain"}
-        />
-      </View>
-
-    </SafeAreaView>
+        </View>
+      </Modal>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1
-  },
   container: {
     flex: 1,
     paddingVertical: 40,
