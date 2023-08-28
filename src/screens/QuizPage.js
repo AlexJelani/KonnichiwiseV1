@@ -226,13 +226,6 @@ const QuizPage = () => {
           </View>
         </View>
       </Modal>
-
-      {/* Background Image */}
-      {/*<Image*/}
-      {/*  source={require("../../assets/images/DottedBG.png")}*/}
-      {/*  style={styles.backgroundImage}*/}
-      {/*  resizeMode={"contain"}*/}
-      {/*/>*/}
     </View>
   );
 };
